@@ -524,6 +524,47 @@
         width: 300px;
       }
     }
+  
+    /* Strong table readability fix */
+    .markdown-section table,
+    .markdown-section table tbody,
+    .markdown-section table tr,
+    .markdown-section table td {
+      background: #101824 !important;
+      color: #e5eefb !important;
+    }
+
+    .markdown-section table tr:nth-child(odd) td {
+      background: #0f1723 !important;
+      color: #e5eefb !important;
+    }
+
+    .markdown-section table tr:nth-child(even) td {
+      background: #162131 !important;
+      color: #e5eefb !important;
+    }
+
+    .markdown-section table tr:hover td {
+      background: rgba(245, 158, 11, 0.16) !important;
+      color: #ffffff !important;
+    }
+
+    .markdown-section table th {
+      background: linear-gradient(180deg, #263244, #151f2e) !important;
+      color: #ffffff !important;
+      border-color: #334155 !important;
+    }
+
+    .markdown-section table td {
+      border-color: #334155 !important;
+    }
+
+    .markdown-section table td strong,
+    .markdown-section table td em,
+    .markdown-section table td code {
+      color: #ffffff !important;
+    }
+
   </style>
 </head>
 
