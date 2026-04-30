@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AWS CLF-C02 Exam Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --theme-color: #f59e0b;
+      --bg: #080d14;
+      --bg2: #0d1420;
+      --sidebar: #0f1722;
+      --panel: #121b28;
+      --panel2: #172232;
+      --line: #273449;
+      --line2: #334155;
+      --text: #d7e0ec;
+      --muted: #8ea0b8;
+      --muted2: #64748b;
+      --white: #f8fafc;
+      --amber: #f59e0b;
+      --amber2: #fbbf24;
+      --cyan: #22d3ee;
+      --blue: #60a5fa;
+      --green: #22c55e;
+      --purple: #a78bfa;
+      --red: #fb7185;
+      --shadow: 0 24px 80px rgba(0,0,0,.45);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      background:
+        radial-gradient(circle at top left, rgba(245,158,11,.12), transparent 28rem),
+        radial-gradient(circle at top right, rgba(34,211,238,.10), transparent 24rem),
+        linear-gradient(180deg, #080d14 0%, #0b111a 100%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: .005em;
+    }
+
+    ::selection { background: rgba(245, 158, 11, .28); color: var(--white); }
+
+    a { color: var(--amber2); text-decoration: none; }
+    a:hover { color: var(--cyan); text-decoration: none; }
+
+    .sidebar {
+      background:
+        linear-gradient(180deg, rgba(15,23,34,.98), rgba(9,14,22,.98)) !important;
+      border-right: 1px solid var(--line);
+      box-shadow: 12px 0 50px rgba(0,0,0,.30);
+      width: 290px;
+    }
+
+    .sidebar h1 {
+      padding: 26px 22px 20px;
+      margin: 0 !important;
+      text-align: left !important;
+      font-size: 18px !important;
+      line-height: 1.25;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(245,158,11,.10), rgba(34,211,238,.04));
+    }
+
+    .sidebar h1 a {
+      color: var(--white) !important;
+      font-weight: 900;
+      letter-spacing: .02em;
+    }
+
+    .side-subtitle {
+      display: block;
+      color: var(--amber);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      margin-top: 6px;
+      font-weight: 800;
+    }
+
+    .sidebar-nav {
+      padding: 18px 14px 50px;
+    }
+
+    .sidebar-nav > ul > li > p {
+      color: var(--muted2);
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      margin: 26px 8px 10px;
+    }
+
+    .sidebar ul li a {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 12px;
+      padding: 9px 12px;
+      display: block;
+      transition: all .18s ease;
+      border: 1px solid transparent;
+    }
+
+    .sidebar ul li a:hover {
+      color: var(--white);
+      background: rgba(255,255,255,.045);
+      border-color: rgba(148,163,184,.16);
+      transform: translateX(2px);
+    }
+
+    .sidebar ul li.active > a {
+      color: var(--white) !important;
+      background:
+        linear-gradient(90deg, rgba(245,158,11,.17), rgba(34,211,238,.05));
+      border-color: rgba(245,158,11,.30);
+      box-shadow: inset 3px 0 0 var(--amber);
+    }
+
+    .search {
+      border-bottom: 1px solid var(--line) !important;
+      padding: 14px !important;
+      background: rgba(8,13,20,.34);
+    }
+
+    .search input {
+      background: #0a111b !important;
+      color: var(--white) !important;
+      border: 1px solid var(--line2) !important;
+      border-radius: 14px !important;
+      padding: 11px 13px !important;
+      font-size: 14px !important;
+      outline: none !important;
+      transition: all .2s ease;
+    }
+
+    .search input:focus {
+      border-color: rgba(245,158,11,.60) !important;
+      box-shadow: 0 0 0 4px rgba(245,158,11,.10);
+    }
+
+    .content {
+      background: transparent;
+      left: 290px;
+    }
+
+    .markdown-section {
+      max-width: 1120px;
+      padding: 44px 52px 90px;
+      color: var(--text);
+    }
+
+    .markdown-section h1 {
+      color: var(--white);
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      line-height: 1.05;
+      font-weight: 900;
+      letter-spacing: -.05em;
+      margin: 18px 0 24px;
+      border: 0;
+    }
+
+    .markdown-section h2 {
+      color: var(--white);
+      font-size: 1.85rem;
+      line-height: 1.2;
+      font-weight: 850;
+      letter-spacing: -.025em;
+      margin-top: 52px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .markdown-section h2::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 90px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--amber), var(--cyan));
+    }
+
+    .markdown-section h3 {
+      color: #eef4ff;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-top: 30px;
+    }
+
+    .markdown-section h4,
+    .markdown-section h5 {
+      color: var(--white);
+    }
+
+    .markdown-section p,
+    .markdown-section li {
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.82;
+    }
+
+    .markdown-section strong { color: var(--white); font-weight: 800; }
+
+    .markdown-section hr {
+      border: 0;
+      height: 1px;
+      margin: 34px 0;
+      background: linear-gradient(90deg, transparent, var(--line2), transparent);
+    }
+
+    .markdown-section blockquote {
+      background:
+        linear-gradient(135deg, rgba(245,158,11,.10), rgba(34,211,238,.06));
+      border: 1px solid rgba(245,158,11,.22);
+      border-left: 4px solid var(--amber);
+      color: var(--text);
+      border-radius: 18px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.18);
+    }
+
+    .markdown-section code {
+      font-family: "JetBrains Mono", monospace;
+      background: rgba(8,13,20,.82) !important;
+      color: #facc15 !important;
+      border: 1px solid rgba(245,158,11,.20);
+      border-radius: 8px;
+      padding: 2px 7px;
+      font-size: .88em;
+    }
+
+    .markdown-section pre {
+      background: #090f18 !important;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.25);
+    }
+
+    .markdown-section pre code {
+      color: #cbd5e1 !important;
+      border: 0;
+      padding: 0;
+      background: transparent !important;
+    }
+
+    .markdown-section table {
+      display: table;
+      width: 100%;
+      margin: 20px 0 32px;
+      overflow: hidden;
+      border-collapse: collapse;
+      border-radius: 16px;
+      background: rgba(18,27,40,.78);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 55px rgba(0,0,0,.22);
+    }
+
+    .markdown-section th {
+      background:
+        linear-gradient(180deg, rgba(30,41,59,.96), rgba(15,23,42,.96));
+      color: var(--white);
+      font-weight: 850;
+      font-size: 13px;
+      letter-spacing: .02em;
+      text-transform: none;
+    }
+
+    .markdown-section td,
+    .markdown-section th {
+      border: 1px solid rgba(51,65,85,.70);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .markdown-section tr:nth-child(even) td {
+      background: rgba(255,255,255,.018);
+    }
+
+    .markdown-section tr:hover td {
+      background: rgba(245,158,11,.045);
+    }
+
+    .landing {
+      margin-top: 10px;
+    }
+
+    .hero-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border: 1px solid rgba(148,163,184,.22);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, rgba(34,211,238,.18), transparent 18rem),
+        radial-gradient(circle at bottom left, rgba(245,158,11,.18), transparent 20rem),
+        linear-gradient(135deg, rgba(18,27,40,.96), rgba(12,18,29,.96));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0 49%, rgba(255,255,255,.035) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 0 49%, rgba(255,255,255,.035) 50%, transparent 51%);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(90deg, rgba(0,0,0,.35), transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero-kicker,
+    .page-kicker {
+      display: inline-flex;
+      color: var(--amber2);
+      background: rgba(245,158,11,.10);
+      border: 1px solid rgba(245,158,11,.25);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: 12px;
+    }
+
+    .hero-panel p {
+      color: #b8c5d6;
+      max-width: 760px;
+      font-size: 17px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .hero-actions a,
+    .cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--amber), #f97316);
+      color: #111827 !important;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(245,158,11,.18);
+    }
+
+    .hero-actions a + a {
+      background: rgba(255,255,255,.06);
+      color: var(--white) !important;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .stats-grid,
+    .feature-grid,
+    .path-grid,
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 18px 0 8px;
+    }
+
+    .feature-grid,
+    .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .path-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 18px;
+    }
+
+    .stat-card,
+    .feature-card,
+    .path-card,
+    .card,
+    .callout,
+    .guide-hero {
+      background:
+        linear-gradient(180deg, rgba(23,34,50,.85), rgba(14,21,32,.92));
+      border: 1px solid rgba(148,163,184,.18);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.20);
+    }
+
+    .stat-card span {
+      display: block;
+      color: var(--amber2);
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      margin-bottom: 4px;
+    }
+
+    .feature-card,
+    .path-card,
+    .card {
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .feature-card:hover,
+    .path-card:hover,
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245,158,11,.35);
+      background:
+        linear-gradient(180deg, rgba(30,43,62,.92), rgba(15,23,34,.96));
+    }
+
+    .feature-card .icon {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .path-label,
+    .pill,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      color: #fde68a;
+      border: 1px solid rgba(245,158,11,.26);
+      background: rgba(245,158,11,.10);
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .pill.blue { color: #bae6fd; border-color: rgba(34,211,238,.25); background: rgba(34,211,238,.10); }
+    .pill.amber { color: #fde68a; }
+
+    .guide-hero {
+      margin: 18px 0 28px;
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at top right, rgba(245,158,11,.18), transparent 20rem),
+        linear-gradient(135deg, rgba(15,23,42,.95), rgba(17,24,39,.95));
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      background: rgba(18,27,40,.72);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .step span {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(245,158,11,.12);
+      border: 1px solid rgba(245,158,11,.3);
+      color: var(--amber2);
+      font-weight: 900;
+    }
+
+    .callout {
+      border-left: 4px solid var(--cyan);
+    }
+
+    .pagination-item-label,
+    .pagination-item-title {
+      color: var(--text) !important;
+    }
+
+    .app-nav {
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .content { left: 0; }
+      .markdown-section { padding: 32px 22px 80px; }
+      .hero-panel { padding: 28px; }
+      .stats-grid,
+      .feature-grid,
+      .path-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">Loading AWS CLF-C02 Exam Portal...</div>
+
+  <script>
+    window.$docsify = {
+      name: 'AWS CLF-C02',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      relativePath: false,
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'search exam notes...',
+        noData: 'No result found.',
+        depth: 5
+      },
+      copyCode: {
+        buttonText: 'Copy',
+        errorText: 'Error',
+        successText: 'Copied'
+      }
+    }
+  </script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+</body>
+</html>
