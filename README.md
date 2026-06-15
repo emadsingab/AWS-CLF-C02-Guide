@@ -6,6 +6,15 @@
 
 # AWS CLF-C02 Complete Guide
 
+<div class="stat-card">
+  <span>700+</span>
+  <div>Questions Mapped</div>
+  <a href="https://emadsingab.github.io/AWS-CLF-C02-Guide/#/" target="_blank" class="btn">
+    Go to Guide
+  </a>
+</div>
+
+
 A premium dark-mode study portal for Cloud Practitioner revision, keyword recognition, service comparisons, and exam traps.
 
 <div class="hero-actions">
